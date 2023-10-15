@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">LogAndBlog</string>
+    <string name="app_name">Log &amp; Blog</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">DumDumbIch</string>
+    <string name="nav_header_subtitle">dumdumbich@mail.ru</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search …</string>
+
+    <string name="menu_notes">Notes</string>
+    <string name="menu_blog">Blog</string>
+    <string name="menu_logs">Logs list</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="add_new_note">Add new note</string>
 </resources>
