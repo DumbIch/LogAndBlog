@@ -21,7 +21,7 @@ import androidx.viewbinding.ViewBinding
 open class BaseFragment<VB : ViewBinding>(private val bindingInflater: (inflater: LayoutInflater) -> VB) :
     Fragment() {
 
-    val TAG = "@@@  ${this::class.java.simpleName} : ${this.hashCode()}"
+    protected val TAG = "@@@  ${this::class.java.simpleName} : ${this.hashCode()}"
 
     private var _ui: VB? = null
     protected val ui get() = _ui!!
