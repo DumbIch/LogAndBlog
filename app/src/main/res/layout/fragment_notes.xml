@@ -8,20 +8,8 @@
     android:orientation="vertical"
     tools:context=".ui.screen.notes.NotesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notes_item_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/recyclerview_item" />
-
-    <ProgressBar
-        android:id="@+id/notes_list_progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible" />
+    <include
+        android:id="@+id/notes_list"
+        layout="@layout/list_notes" />
 
 </LinearLayout>
