@@ -1,4 +1,4 @@
-package ru.dumdumbich.logandblog.data
+package ru.dumdumbich.logandblog.branch.database.data
 
 import ru.dumdumbich.logandblog.branch.database.data.source.FakeDataSource
 import ru.dumdumbich.logandblog.domain.DataCenterUsecase
