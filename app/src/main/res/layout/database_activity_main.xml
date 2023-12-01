@@ -1,21 +1,24 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/main_content"
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@+id/main_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvToDoList"
+        android:id="@+id/todo_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_anchor="@+id/todo_list_recycler_view"
+        app:layout_anchorGravity="center"
+        tools:listitem="@layout/database_item_todo_list" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_anchor="@id/rvToDoList"
-        app:layout_anchorGravity="bottom|right|end"/>
+        android:src="@drawable/baseline_note_add_24"
+        app:layout_anchor="@id/todo_list_recycler_view"
+        app:layout_anchorGravity="bottom|right|end" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
