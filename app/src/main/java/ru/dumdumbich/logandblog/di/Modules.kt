@@ -1,6 +1,8 @@
 package ru.dumdumbich.logandblog.di
 
 import org.koin.dsl.module
+import ru.dumdumbich.logandblog.data.DataCenter
+import ru.dumdumbich.logandblog.domain.LoginDataSourceUsecase
 
 /**
  * <h3>LogAndBlog</h3>
@@ -11,6 +13,7 @@ import org.koin.dsl.module
  * @date 2023-10-14 14:32
  **/
 
-val appModule = module {
 
+val appModule = module {
+    single<LoginDataSourceUsecase> { DataCenter() }
 }
