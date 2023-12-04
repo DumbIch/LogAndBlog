@@ -4,6 +4,9 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import ru.dumdumbich.logandblog.R
 import ru.dumdumbich.logandblog.domain.LoginDataSourceUsecase
 import ru.dumdumbich.logandblog.domain.RequestResult
@@ -19,8 +22,8 @@ import ru.dumdumbich.logandblog.domain.RequestResult
 
 class LoginViewModel(private val loginDataSource: LoginDataSourceUsecase) : ViewModel() {
 
-    private val _loginViewState = MutableLiveData<LoginViewState>()
-    val loginViewState: LiveData<LoginViewState> = _loginViewState
+    private val _uiState = MutableStateFlow(LoginUiState())
+    val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
@@ -37,27 +40,4 @@ class LoginViewModel(private val loginDataSource: LoginDataSourceUsecase) : View
         }
     }
 
-    fun loginDataChanged(username: String, password: String) {
-        if (!isUserNameValid(username)) {
-            _loginViewState.value = LoginViewState(usernameError = R.string.invalid_username)
-        } else if (!isPasswordValid(password)) {
-            _loginViewState.value = LoginViewState(passwordError = R.string.invalid_password)
-        } else {
-            _loginViewState.value = LoginViewState(isDataValid = true)
-        }
-    }
-
-    // A placeholder username validation check
-    private fun isUserNameValid(username: String): Boolean {
-        return if (username.contains('@')) {
-            Patterns.EMAIL_ADDRESS.matcher(username).matches()
-        } else {
-            username.isNotBlank()
-        }
-    }
-
-    // A placeholder password validation check
-    private fun isPasswordValid(password: String): Boolean {
-        return password.length > 5
-    }
 }

@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import ru.dumdumbich.logandblog.databinding.ActivitySplashBinding
-import ru.dumdumbich.logandblog.ui.MainActivity
 import ru.dumdumbich.logandblog.ui.base.BaseActivity
+import ru.dumdumbich.logandblog.ui.screen.login.LoginActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
@@ -28,7 +28,7 @@ class SplashActivity : BaseActivity() {
         }.start()
 
         handler.postDelayed({
-            Intent(this@SplashActivity, MainActivity::class.java).also { intent ->
+            Intent(this@SplashActivity, LoginActivity::class.java).also { intent ->
                 startActivity(intent)
             }
             finish()

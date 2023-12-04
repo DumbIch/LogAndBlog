@@ -9,6 +9,6 @@ package ru.dumdumbich.logandblog.domain
  * @date 2023-10-18 11:09
  **/
 
-interface NoteUsecase {
+interface NoteDataSourceUsecase {
     fun getAllNotes(): List<Note>
 }

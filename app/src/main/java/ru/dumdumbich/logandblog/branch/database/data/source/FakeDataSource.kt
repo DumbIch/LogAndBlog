@@ -2,6 +2,7 @@ package ru.dumdumbich.logandblog.branch.database.data.source
 
 import ru.dumdumbich.logandblog.domain.DataCenterUsecase
 import ru.dumdumbich.logandblog.domain.Note
+import ru.dumdumbich.logandblog.domain.NoteDataSourceUsecase
 
 /**
  * <h3>LogAndBlog</h3>
@@ -11,7 +12,7 @@ import ru.dumdumbich.logandblog.domain.Note
  * @author DumbIch
  * @date 2023-10-18 12:57
  **/
-class FakeDataSource : DataCenterUsecase {
+class FakeDataSource : NoteDataSourceUsecase {
 
 
     override fun getAllNotes(): List<Note> {

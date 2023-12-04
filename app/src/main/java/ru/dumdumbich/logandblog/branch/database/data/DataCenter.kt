@@ -1,9 +1,5 @@
 package ru.dumdumbich.logandblog.branch.database.data
 
-import ru.dumdumbich.logandblog.branch.database.data.source.FakeDataSource
-import ru.dumdumbich.logandblog.domain.DataCenterUsecase
-import ru.dumdumbich.logandblog.domain.Note
-
 /**
  * <h3>LogAndBlog</h3>
  * @File : DataCenter
@@ -14,12 +10,8 @@ import ru.dumdumbich.logandblog.domain.Note
  **/
 
 
-class DataCenter : DataCenterUsecase {
+class DataCenter  {
 
-    private var fake: FakeDataSource = FakeDataSource()
 
-    override fun getAllNotes(): List<Note> {
-        return fake.getAllNotes()
-    }
 
 }

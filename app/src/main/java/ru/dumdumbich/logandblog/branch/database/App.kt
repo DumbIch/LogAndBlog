@@ -1,13 +1,11 @@
 package ru.dumdumbich.logandblog.branch.database
 
 import android.app.Application
-import android.content.Context
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.AndroidViewModel
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidFileProperties
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-import ru.dumdumbich.logandblog.branch.database.data.DataCenter
 import ru.dumdumbich.logandblog.di.appModule
-import ru.dumdumbich.logandblog.domain.DataCenterUsecase
 
 /**
  * <h3>LogAndBlog</h3>
@@ -20,23 +18,14 @@ import ru.dumdumbich.logandblog.domain.DataCenterUsecase
 
 class App : Application() {
 
-    val dataCenter: DataCenterUsecase by lazy { DataCenter() }
-
     override fun onCreate() {
         super.onCreate()
         startKoin {
+            androidLogger()
+            androidContext(this@App)
+            androidFileProperties()
             modules(appModule)
         }
     }
 
 }
-
-
-val Context.app
-    get() = applicationContext as App
-
-val Fragment.app
-    get() = requireActivity().app
-
-val AndroidViewModel.app
-    get() = getApplication<App>()

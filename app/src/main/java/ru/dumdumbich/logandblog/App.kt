@@ -20,7 +20,7 @@ import ru.dumdumbich.logandblog.domain.DataCenterUsecase
 
 class App : Application() {
 
-    val dataCenter: DataCenterUsecase by lazy { DataCenter() }
+//    val dataCenter: DataCenterUsecase by lazy { DataCenter() }
 
     override fun onCreate() {
         super.onCreate()

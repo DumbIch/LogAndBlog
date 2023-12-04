@@ -1,10 +1,13 @@
 package ru.dumdumbich.logandblog.data
 
-import ru.dumdumbich.logandblog.branch.database.data.source.FakeDataSource
-import ru.dumdumbich.logandblog.domain.DataCenterUsecase
+import ru.dumdumbich.logandblog.data.source.fake.FakeLoginDataSource
+import ru.dumdumbich.logandblog.data.source.fake.FakeNoteDataSource
 import ru.dumdumbich.logandblog.domain.LoggedInUser
+import ru.dumdumbich.logandblog.domain.LoginDataSourceUsecase
 import ru.dumdumbich.logandblog.domain.Note
+import ru.dumdumbich.logandblog.domain.NoteDataSourceUsecase
 import ru.dumdumbich.logandblog.domain.RequestResult
+
 
 /**
  * <h3>LogAndBlog</h3>
@@ -16,20 +19,21 @@ import ru.dumdumbich.logandblog.domain.RequestResult
  **/
 
 
-class DataCenter : DataCenterUsecase {
+class DataCenter : NoteDataSourceUsecase, LoginDataSourceUsecase {
 
-    private var fake: FakeDataSource = FakeDataSource()
+    private var loginDataSource: LoginDataSourceUsecase = FakeLoginDataSource()
+    private var noteDataSource: NoteDataSourceUsecase = FakeNoteDataSource()
 
     override fun getAllNotes(): List<Note> {
-        return fake.getAllNotes()
+        return noteDataSource.getAllNotes()
     }
 
     override fun login(username: String, password: String): RequestResult<LoggedInUser> {
-        TODO("Not yet implemented")
+        return loginDataSource.login(username, password)
     }
 
     override fun logout() {
-        TODO("Not yet implemented")
+        loginDataSource
     }
 
 }
